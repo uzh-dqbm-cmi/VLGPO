@@ -1,0 +1,18 @@
+prior:
+  seq_len: 240 # gfp is padded
+  latent_dim: 32
+  dim: 8
+
+predictor:
+  type: 'unsmoothed' 
+
+sampling:
+  n_samples: 512
+  ode_steps: 32
+  top_k: 128
+  J:
+    smoothed: 5
+    unsmoothed: 37
+  alpha: # alpha * ode_steps 
+    smoothed: 0.5
+    unsmoothed: 18.0

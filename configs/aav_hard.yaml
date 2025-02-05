@@ -1,0 +1,18 @@
+prior:
+  seq_len: 28 
+  latent_dim: 16
+  dim: 8
+
+predictor:
+  type: 'unsmoothed' 
+
+sampling:
+  n_samples: 512
+  ode_steps: 32
+  top_k: 128
+  J:
+    smoothed: 20
+    unsmoothed: 19
+  alpha: # alpha * ode_steps 
+    smoothed: 10.
+    unsmoothed: 38 
