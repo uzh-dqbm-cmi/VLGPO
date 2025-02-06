@@ -86,8 +86,6 @@ def posterior_sample(n_samples, top_k, latent_dim, ode_steps, alpha, J, f_min, f
                 torch.cuda.empty_cache() 
                 
                 z = z - h*alpha*grad_z
-            
-            t = t + h
 
     # Convert back to sequences
     with torch.no_grad():
@@ -114,7 +112,7 @@ def posterior_sample(n_samples, top_k, latent_dim, ode_steps, alpha, J, f_min, f
 
 if __name__ == "__main__":
     device = 'cuda' if torch.cuda.is_available() else 'mps' if torch.backends.mps.is_available() else 'cpu'
-
+    device = 'cpu'
     parser = argparse.ArgumentParser(description="Run sampling with a specific configuration.")
     parser.add_argument(
         "setting",
