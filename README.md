@@ -1,8 +1,8 @@
 # VLGPO: Variational Latent Generative Protein Optimization
 
-[![arXiv](https://img.shields.io/badge/arXiv-PDF-b31b1b)](https://arxiv.org/abs/2501.19200)
+**ICML 2025**
 
-This repository contains the official implementation of the paper "A Variational Perspective on Generative Protein Fitness Optimization".
+This repository contains the inference code for [A Variational Perspective on Generative Protein Fitness Optimization](https://arxiv.org/abs/2501.19200) accepted at [ICML 2025](https://icml.cc/virtual/2025/poster/44530).
 
 [Lea Bogensperger](https://scholar.google.com/citations?user=4cNGQ0sAAAAJ&hl=en)<sup>1</sup>,
 [Dominik Narnhofer](https://scholar.google.com/citations?user=tFx8AhkAAAAJ&hl=en)<sup>2</sup>, 
@@ -19,49 +19,30 @@ This repository contains the official implementation of the paper "A Variational
 
 ## 🛠️ Setup
 
-The VLGPO sampling code was tested using Python 3.11.10 and CUDA 12.4 on an NVIDIA GeForce RTX 4090 GPU. 
-
 Checkpoints for the predictors $g_\phi$ and $g_{\tilde{\phi}}$ (classifier guidance) and the in-silico oracle $g_\psi$ (evaluation) are taken from [GGS: Gibbs sampling with Graph-based Smoothing](https://github.com/kirjner/GGS). 
 
 ### 📦 Repository
 
-Download the VLGPO repository using
-
-```bash
-git clone https://github.com/uzh-dqbm-cmi/VLGPO.git
-```
-
-### 💻 Dependencies
-
-To run this project, you'll need the following Python packages:
-
-- **[PyTorch](https://pytorch.org/)**
-- **[NumPy](https://numpy.org/)** 
-- **[Pandas](https://pandas.pydata.org/)** 
-- **[python-Levenshtein](https://pypi.org/project/python-Levenshtein/)** 
-- **[OmegaConf](https://omegaconf.readthedocs.io/)** 
-- **[einops](https://einops.rocks/)** 
-
+The file `requirements.txt` contains a list of the Python packages required to run this project.
 
 ### 🚀 Run code
 
-Run the VLGPO sampling code (possible settings are ```gfp_medium```, ```gfp_hard```, ```aav_medium``` and ```aav_hard```) using
-
 ```bash
-python src/vlgpo/sample.py <setting>
+# 1. Create and activate the environment
+conda create -n vlgpo-env python=3.11
+conda activate vlgpo-env
+pip install -r requirements.txt
+
+# 2. Run the sampler
+python src/vlgpo/sample.py
 ```
 
 ## 🎓 Citation
 
-If you find our work helpful, please consider citing:
-
 ```bibtex
-@misc{bogensperger2025variationalperspectivegenerativeprotein,
-      title={A Variational Perspective on Generative Protein Fitness Optimization}, 
-      author={Lea Bogensperger and Dominik Narnhofer and Ahmed Allam and Konrad Schindler and Michael Krauthammer},
-      year={2025},
-      eprint={2501.19200},
-      archivePrefix={arXiv},
-      primaryClass={cs.LG},
-      url={https://arxiv.org/abs/2501.19200}, 
+@article{bogensperger2025variational,
+  title={A Variational Perspective on Generative Protein Fitness Optimization},
+  author={Bogensperger, Lea and Narnhofer, Dominik and Allam, Ahmed and Schindler, Konrad and Krauthammer, Michael},
+  journal={arXiv preprint arXiv:2501.19200},
+  year={2025}
 }

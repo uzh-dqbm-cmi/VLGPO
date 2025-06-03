@@ -1,0 +1,9 @@
+numpy
+pandas
+tqdm
+matplotlib
+torch 
+accelerate
+einops
+python-Levenshtein
+omegaconf
